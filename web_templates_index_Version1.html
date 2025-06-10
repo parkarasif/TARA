@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+  <title>ATS Resume Analyzer</title>
+</head>
+<body>
+  <h1>ATS Resume Analyzer</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li style="color:red;">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form method="post" enctype="multipart/form-data">
+    <label for="resume">Upload Resume (PDF/DOCX/TXT):</label><br>
+    <input type="file" name="resume" required><br><br>
+    <label for="jobdesc">Upload Job Description (TXT):</label><br>
+    <input type="file" name="jobdesc" required><br><br>
+    <input type="submit" value="Analyze">
+  </form>
+</body>
+</html>
